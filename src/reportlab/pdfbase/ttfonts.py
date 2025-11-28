@@ -1281,9 +1281,6 @@ class TTFont:
             if code in assignments:
                 n = assignments[code]
             elif code not in charToGlyph:
-                import logging
-                logging.warning(f"Character U+{code:04X} ('{chr(code)}') not in font {self.fontName}, mapping to space")
-
                 # PDF/A-3: Don't use .notdef, use space character instead
                 n = assignments.get(32, 32)  # Map to space character
                 if 32 not in assignments:
